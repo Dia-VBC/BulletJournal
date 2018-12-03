@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # expo
@@ -84,7 +83,6 @@ node_modules
 
 /coverage
 /third-party
-=======
 # Logs
 logs
 *.log
@@ -144,4 +142,3 @@ typings/
 # dotenv environment variables file
 .env
 
->>>>>>> 2e64959e309c0149954806656ce933080baf4105
