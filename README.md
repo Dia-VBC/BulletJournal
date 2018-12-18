@@ -1,5 +1,6 @@
 # BulletJournal: TII-POS Sistema para avaliação dos alunos
 
-## Sites para consulta
-- http://bulletjournal.com/
-- https://www.dicasdemulher.com.br/bullet-journal/
+## Bullet Journal versão web
+  repo: https://github.com/Dia-VBC/bujoweb
+  heroku: https://nadia-bulletjournal.herokuapp.com/
+
