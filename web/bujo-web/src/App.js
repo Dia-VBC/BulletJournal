@@ -1,25 +1,68 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
+import Header from './components/Header';
+import NewUser from './components/NewUser';
+import Toast from './components/Toast';
+
+import User from './models/User';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    User.load(
+      user => {
+        this.state = {user: user};
+      }, () => {
+        this.state = {user: undefined};
+      }
+    );
+  }
+
+  messageToNewUser(user) {
+    let gender = user.gender === 'm' ? 'o': 'a';
+    this.refs.toast.success(`Seja bem vind${gender} ${user.name}!`);
+  }
+
+  renderNewUser() {
+    let user = this.state.user;
+    if (user) {
+      let style = {
+        marginTop: '140px',
+        textAlign: 'center',
+      };
+
+      return (
+        <div style={style}>
+          <b>Usuário obtido do <i>localStorage</i></b><br />
+          {user.toString()}
+        </div>
+      );
+    } else {
+      return (
+        <NewUser 
+          onSubmit={user =>{
+            user.save(() => {
+              this.setState({
+                user: user
+              }, () => {
+                this.messageToNewUser(user)
+              });
+            });
+          }}
+          erro={msg => this.refs.toast.erro(msg) }
+        />
+      );
+    }
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Header />
+        { this.renderNewUser() }
+        <Toast ref="toast" />
       </div>
     );
   }
