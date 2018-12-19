@@ -8,7 +8,7 @@
   repo v1: https://github.com/Dia-VBC/bujoweb
   heroku v1: https://nadia-bulletjournal.herokuapp.com/
   
-  OBS: heroku não está funcionando devido a uma falha na detecção do buildpack, testar via repo e localhost
+  OBS: heroku não está funcionando devido a uma falha na detecção do buildpack, testar via repo e localhost (yarn start)
   
   repo v2: https://github.com/ana-tereza/BujoWeb
   heroku v2:https://bujowebapp7.herokuapp.com/
